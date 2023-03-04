@@ -14,5 +14,5 @@ export async function onRequestPost(context) {
     headers: request.headers,
     body: request.body
   })
-  return response
+  return new Response(JSON.stringify(request.body), { status: 200 })
 }
