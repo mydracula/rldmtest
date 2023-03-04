@@ -10,12 +10,10 @@ export async function onRequestPost(context) {
   } = context
   const url = new URL(request.url)
 
-  const formData = await request.formData()
-
-  const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
-    method: request.method,
-    headers: request.headers,
-    body: formData
-  })
-  return response
+  // const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
+  //   method: request.method,
+  //   headers: request.headers,
+  //   body: formData
+  // })
+  return JSON.stringify(request)
 }
