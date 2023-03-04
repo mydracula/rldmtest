@@ -9,10 +9,13 @@ export async function onRequestPost(context) {
     data // arbitrary space for passing data between middlewares
   } = context
   const url = new URL(request.url)
+
+  const formData = await request.formData()
+
   const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
     method: request.method,
     headers: request.headers,
-    body: request.body
+    body: formData
   })
-  return new Response(JSON.stringify(request.body), { status: 200 })
+  return response
 }
